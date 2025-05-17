@@ -1,0 +1,49 @@
+[db]
+host = "db"
+port = 5432
+user = "postgres"
+password = "postgres"
+name = "postgres"
+
+[app]
+project_name = "Мини-сервис анализа транзакций"
+api_v1_str = "/api/v1"
+
+[limits]
+daily_spending_limit = 5000.0
+weekly_spending_limit = 20000.0
+
+[logging]
+log_level = "INFO"
+
+[categorization]
+categories = ["Food", "Transport", "Entertainment", "Utilities", "Other"]
+default_category = "Other"
+
+[categorization.category_keywords]
+пятерочка = "Food"
+перекресток = "Food"
+вкусвилл = "Food"
+ресторан = "Food"
+кафе = "Food"
+обед = "Food"
+продукты = "Food"
+еда = "Food"
+такси = "Transport"
+метро = "Transport"
+автобус = "Transport"
+транспорт = "Transport"
+бензин = "Transport"
+азс = "Transport"
+кино = "Entertainment"
+театр = "Entertainment"
+концерт = "Entertainment"
+развлечения = "Entertainment"
+игра = "Entertainment"
+коммунальные = "Utilities"
+жкх = "Utilities"
+вода = "Utilities"
+электричество = "Utilities"
+газ = "Utilities"
+интернет = "Utilities"
+связь = "Utilities"

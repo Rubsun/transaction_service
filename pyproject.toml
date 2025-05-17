@@ -1,0 +1,16 @@
+[project]
+name = "transaction-service2"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.12"
+dependencies = [
+    "asyncpg>=0.30.0",
+    "dishka>=1.5.3",
+    "fastapi>=0.115.12",
+    "loguru>=0.7.3",
+    "pex>=2.38.0",
+    "prometheus-fastapi-instrumentator>=7.1.0",
+    "sqlalchemy>=2.0.40",
+    "toml>=0.10.2",
+    "uvicorn>=0.34.2",
+]
