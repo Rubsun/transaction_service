@@ -24,7 +24,7 @@ async def lifespan(app_: FastAPI) -> AsyncGenerator[None, None]:
 
 
 def create_app(ioc_container: AsyncContainer):
-    application = FastAPI(title="Dating Bot Profile Service",
+    application = FastAPI(title="Transaction Service",
                           version="1.0.0", lifespan=lifespan)
 
     instrumentator = Instrumentator(
