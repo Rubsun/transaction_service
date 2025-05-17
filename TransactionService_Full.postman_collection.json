@@ -1,0 +1,115 @@
+{
+  "info": {
+    "name": "TransactionService Full Check",
+    "_postman_id": "7dc67182-d41b-42f7-98b8-812207df3cf1",
+    "description": "Полная проверка событий: импорт, категоризация, лимиты, статистика",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Import - User 1 (Basic Categorization)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n  {\n    \"id\": \"tx201\",\n    \"user_id\": 1,\n    \"amount\": -1200,\n    \"currency\": \"RUB\",\n    \"description\": \"Пятерочка продукты\",\n    \"timestamp\": \"2025-05-10T09:00:00\"\n  },\n  {\n    \"id\": \"tx202\",\n    \"user_id\": 1,\n    \"amount\": -800,\n    \"currency\": \"RUB\",\n    \"description\": \"Метро\",\n    \"timestamp\": \"2025-05-10T12:00:00\"\n  }\n]"
+        },
+        "url": {
+          "raw": "http://localhost:8000/transactions/import",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["transactions", "import"]
+        }
+      }
+    },
+    {
+      "name": "Get Stats - User 1",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/users/1/stats?from=2025-05-01&to=2025-05-31",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["users", "1", "stats"],
+          "query": [
+            { "key": "from", "value": "2025-05-01" },
+            { "key": "to", "value": "2025-05-31" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Import - User 2 (Mixed Categories)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n  {\n    \"id\": \"tx301\",\n    \"user_id\": 2,\n    \"amount\": -500,\n    \"currency\": \"RUB\",\n    \"description\": \"Интернет\",\n    \"timestamp\": \"2025-05-14T10:00:00\"\n  },\n  {\n    \"id\": \"tx302\",\n    \"user_id\": 2,\n    \"amount\": -1500,\n    \"currency\": \"RUB\",\n    \"description\": \"Концерт\",\n    \"timestamp\": \"2025-05-14T20:00:00\"\n  }\n]"
+        },
+        "url": {
+          "raw": "http://localhost:8000/transactions/import",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["transactions", "import"]
+        }
+      }
+    },
+    {
+      "name": "Get Stats - User 2",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/users/2/stats?from=2025-05-10&to=2025-05-20",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["users", "2", "stats"],
+          "query": [
+            { "key": "from", "value": "2025-05-10" },
+            { "key": "to", "value": "2025-05-20" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Import - User 3 (Limit Exceeding)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n  {\n    \"id\": \"tx401\",\n    \"user_id\": 3,\n    \"amount\": -4000,\n    \"currency\": \"RUB\",\n    \"description\": \"Вкусвилл\",\n    \"timestamp\": \"2025-05-15T10:00:00\"\n  },\n  {\n    \"id\": \"tx402\",\n    \"user_id\": 3,\n    \"amount\": -3500,\n    \"currency\": \"RUB\",\n    \"description\": \"Кафе обед\",\n    \"timestamp\": \"2025-05-15T13:30:00\"\n  },\n  {\n    \"id\": \"tx403\",\n    \"user_id\": 3,\n    \"amount\": -3000,\n    \"currency\": \"RUB\",\n    \"description\": \"АЗС бензин\",\n    \"timestamp\": \"2025-05-16T08:00:00\"\n  },\n  {\n    \"id\": \"tx404\",\n    \"user_id\": 3,\n    \"amount\": -4500,\n    \"currency\": \"RUB\",\n    \"description\": \"Кино\",\n    \"timestamp\": \"2025-05-17T20:00:00\"\n  }\n]"
+        },
+        "url": {
+          "raw": "http://localhost:8000/transactions/import",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["transactions", "import"]
+        }
+      }
+    },
+    {
+      "name": "Get Stats - User 3",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/users/3/stats?from=2025-05-12&to=2025-05-20",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["users", "3", "stats"],
+          "query": [
+            { "key": "from", "value": "2025-05-12" },
+            { "key": "to", "value": "2025-05-20" }
+          ]
+        }
+      }
+    }
+  ]
+}
